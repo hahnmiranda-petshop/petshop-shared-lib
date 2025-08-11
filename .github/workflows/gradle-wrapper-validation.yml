@@ -1,0 +1,7 @@
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('**/gradle/wrapper/gradle-wrapper.jar') != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gradle/wrapper-validation-action@v1

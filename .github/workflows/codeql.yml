@@ -1,0 +1,17 @@
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "**/*.java"
+      - "**/*.kt"
+      - "**/build.gradle*"
+      - "**/settings.gradle*"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "**/*.java"
+      - "**/*.kt"
+      - "**/build.gradle*"
+      - "**/settings.gradle*"
+  schedule:
+    - cron: '0 3 * * 1'   # ok manter
