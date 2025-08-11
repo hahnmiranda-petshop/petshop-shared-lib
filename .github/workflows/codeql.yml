@@ -1,33 +1,17 @@
-name: CodeQL
-
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "**/*.java"
+      - "**/*.kt"
+      - "**/build.gradle*"
+      - "**/settings.gradle*"
   pull_request:
     branches: [ "main" ]
+    paths:
+      - "**/*.java"
+      - "**/*.kt"
+      - "**/build.gradle*"
+      - "**/settings.gradle*"
   schedule:
-    - cron: '0 3 * * 1'
-
-jobs:
-  analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'java' ]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: ${{ matrix.language }}
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+    - cron: '0 3 * * 1'   # ok manter
